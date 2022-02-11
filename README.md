@@ -7,9 +7,9 @@ Support for the Mono profiler in .NET 6 Android applications
 ```dotnetcli
 > dotnet new android
 > dotnet add package Mono.Profiler.Android --prerelease
-> dotnet build -c Release -t:StartProfiling
+> dotnet build -c Release -t:StartProfiling -f net6.0-android
 # Wait until app launches, or you navigate to a screen
-> dotnet build -c Release -t:StopProfiling
+> dotnet build -c Release -t:StopProfiling -f net6.0-android
 ```
 _NOTE: you can also use `dotnet new maui`, build with `-f net6.0-android`._
 
@@ -25,9 +25,9 @@ Use a Debug build, or set `-p:AndroidEnableAotProfiler=true`:
 
 ```dotnetcli
 > dotnet add package Mono.AotProfiler.Android --prerelease
-> dotnet build -t:BuildAndStartAotProfiling
+> dotnet build -t:BuildAndStartAotProfiling -f net6.0-android
 # Wait until app launches, or you navigate to a screen
-> dotnet build -t:FinishAotProfiling
+> dotnet build -t:FinishAotProfiling -f net6.0-android
 ```
 
 This will produce a `custom.aprof` in your project directory.
@@ -66,6 +66,6 @@ for `Release` builds.
 
 ```dotnetcli
 > dotnet build -c Release
-> dotnet build -c Release samples/hellomaui/hellomaui.csproj -t:StartProfiling
-> dotnet build -c Release samples/hellomaui/hellomaui.csproj -t:StopProfiling
+> dotnet build -c Release samples/hellomaui/hellomaui.csproj -t:StartProfiling -f net6.0-android
+> dotnet build -c Release samples/hellomaui/hellomaui.csproj -t:StopProfiling -f net6.0-android
 ```
